@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta charset="UTF-8"> <!-- codificare caractere byte 65 echivalent A mare -->
+        <meta name="description" content="Cel mai bun ceai">
+        <meta name="keywords" content="Ceai Iasomie, Pai Mu Tan, Ceai Ceylon,Ceai Rodie,Ceai Ghimbir">
+        <title>Best Tea </title>
+        <meta name="author" content="Crusoveanu Mihai"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="resurse/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="resurse/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="resurse/ico/favicon-16x16.png">
+        <link rel="manifest" href="resurse/ico/site.webmanifest">
+        <link rel="shortcut icon" href="resurse/ico/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="resurse/ico/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- layout css pentru etapa 2 -->
+        <link rel="stylesheet" href="resurse/css/layout/layoutmare.css" />
+        <link rel="stylesheet" href="resurse/css/layout/layoutmediu.css" media="(max-width:1200px) and (min-width: 700px)"/>
+        <link rel="stylesheet" href="resurse/css/layout/layoutmic.css" media="(max-width:700px)"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        <!-- task icon -->
+        <script src="https://kit.fontawesome.com/578ed38d08.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>BestTea</h1>
+            <nav>
+                <ul class="meniu">
+                      <!-- task icon static -->
+                    <li><a id="acasa"><i class="fa-solid fa-house"></i> <span>Acasa</span></div><div id="acasa-mediu"></a>
+                        <ul>
+                            <li><a href="#welcome">Welcome</a></li>
+                            <li><a href="#promotii">Promotii</a></li>
+                            <li><a href="#anunturi">Anunturi</a></li>
+                            <li><a href="#produse">Oferta</a></li>
+                            <li><a href="#orar">Orar</a></li>
+                            <li><a href="#index-intrebari">Întrebări</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Inregistrare</a></li>
+                    <li><a href="#">Despre</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <!-- inceput grid -->
+            <div id="grid-pagina">
+                <!-- zona welcome -->
+                <section id="welcome">
+                    <h2>Bine ati venit!</h2>
+                    <p class="intro">
+                        Cand admiram entuziasmul din ochii celor care ne trec pragul e inimitabila, iar zambetele pe care le-am nascut in micul loc cochet din centrul Bucurestilor ne ofera bucurie,
+                        putere si dorinta sa continuam ce-am inceput. Sa fie oare mandrie? Sau oare chiar am avut dreptate la inceput, spunand ca ceaiul da putere? 
+                        Azi sunt mult mai multe lucruri sigure decat la inceput… nu doar miile de cafele, ceaiuri sau bombonele impartite, nu doar afacerile, prieteniile sau cuplurile formate aici,
+                        ci si frumusetea Bucurestiului de altadata a fost restaurata la ceainaria noastra. Sa ducem povestea mai departe si sa spunem, cu curaj, ca viitorul va admira prezentul pe care-l adoram!    
+                    </p>
+                    <hr class="ceai"/>
+                    <div id="dv-prezentare-1">
+                        <div id="dv-prezentare">
+                        <figure style="width: max-content">
+                            <picture>
+                                <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                                <source srcset="resurse/imagini/ceai1_mic.png" media="(max-width:700px)"/><!-- ecran mic -->
+                                <source srcset="resurse/imagini/ceai1_mediu.png" media="(max-width:1200px)"/><!-- ecran mediu -->
+                                <img src="resurse/imagini/ceai1_mare.png" alt="text"/><!-- ecran mare -->
+                            </picture>
+                            <figcaption style="text-align: center;"><i>Ceai de fructe de padure</i></figcaption>
+                        </figure>
+                        </div>
+                    </div>
+                    <hr class="ceai"/>
+                </section>
+                <!-- sfarsit zona welcome -->
+                <!-- inceput zona tabel -->
+                <section id="orar">
+                    <h2>Orar</h2>
+                    <div id="tab-container">
+                        <table id="tab-orar">
+                            <caption>Orarul BestTea</caption>
+                            <thead>
+                                <tr>
+                                    <th>Perioadă</th>
+                                    <th>Zi</th>
+                                    <th>Interval dimineata</th>
+                                    <th>Pauza de masa</th>
+                                    <th>Interval seară</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5">Zile<br/>Lucrătoare</td>
+                                    <td>Monday</td>
+                                    <td>08:30-11:30</td>
+                                    <td>11:30-14</td>
+                                    <td>14-20</td>
+                                </tr>
+                                <tr>
+                                    <td>Thursday</td>
+                                    <td>9-12</td>
+                                    <td>12-14</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Wednesday</td>
+                                    <td>9-11</td>
+                                    <td>11-13</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>
+                                    <td>Thursday</td>
+                                    <td>9-11</td>
+                                    <td>11-13</td>
+                                    <td>14-21</td>
+                                </tr>
+                                <tr>  
+                                    <td>Vineri</td>
+                                    <td>9-12</td>
+                                    <td>12-14</td>
+                                    <td>14-19</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Weekend</td>
+                                    <td>Sambata</td>
+                                    <td>10-12</td>
+                                    <td>12-13</td>
+                                    <td>13-16</td>
+                                </tr>
+                                <tr>
+                                    <td>Duminica</td>
+                                    <td>10-14</td>
+                                    <td>-</td>
+                                    <td>inchis</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <td colspan="5">Ne puteti contacta oricand in intervalele orare disponibile.</td>
+                            </tfoot>
+                        </table>
+                    </div>
+                </section>
+                <!-- sfarsit zona tabel -->
+                <!-- inceput zona anunturi -->
+                <section id="anunturi">
+                    <h2>Anunțuri</h2>
+                    <p><time datetime="2020-07-05">5 iulie 2020</time> Am adăugat noi sortimente de ceai in meniu</p>
+                    <p><time datetime="2020-12-28">28 decembrie 2020</time> Am adăugat o noua reteta de prajituri</p>
+                    <p><time datetime="2021-01-01">1 ianuarie 2021</time> Un an nou fericit!</p>
+                </section> 
+                <!-- sfarsit zona anunturi -->
+                <!-- inceput zona calendar -->
+                <section id="calendar">
+                    <h2>Calendar</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona calendar -->
+                <!-- inceput zona utilizatori si statistici -->
+                <section id="utiliz-stat">
+                    <h2>Date despre utilizatori si statistici</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona utilizatori si statistici -->
+                <!-- inceput zona lista utilizatori online -->
+                <section id="lista-utiliz">
+                    <h2>Lista utilizatorilor online</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona lista utilizatori online -->
+                <!-- inceput zona site si server -->
+                <section id="site-server">
+                    <h2>Date despre site si server</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona lista site si server -->
+                <!-- inceput zona custom -->
+                <div id="custom">               
+                    <section id="index-intrebari">
+                        <h2>Întrebări frecvente</h2>
+                        <details><summary>Cum pot comanda?</summary>
+                            <p>Puteti plasa comanda atat online, din aplicatie, cat si telefonic, contactandu-ne la numarul de telefon 
+                                <a href="tel:0722222222">0722 222 222</a>.
+                            </p>
+                        </details>
+                        <details><summary>In cat timp va fi livrata comanda?</summary>
+                            <p>Magazinul nostru livreaza doar in zilele lucratoare, o livrare standard durand aproximativ 2-3 zile.</p>
+                        </details>
+                        <details><summary>Aveti si magazine fizice?</summary>
+                            <p>Da, ceainaria BestTea este deschisa in fiecare zi in intervalele orare specificate pe site, la locatia noastra din Strada Ceainariei 10.</p>
+                        </details>
+                        <details><summary>Sunteți cumva asociați cu medicii dentiști, medicii gastroenterologi, companiile farmaceutice și sălile de Fitness?</summary>
+                            <p>Ne rezervăm dreptul de a nu răspunde la această întrebare; mulțumim pentru înțelegere!</p>
+                        </details>
+                    </section>
+                    <section id="retete">
+                        <h2>Retete</h2>
+                        <p>Unele dintre retetele noastre de ceai pot fi reproduse urmarind recomandarile video de mai jos.</p>
+                            <div class="container-iframe">
+                                <div class="taburi-iframe">
+                                    <a href="https://www.youtube.com/embed/YuOHZ5OY1_c" target="ifr-video">Jasmine Tea</a>
+                                    <a href="https://www.youtube.com/embed/yjmr2WElGBs" target="ifr-video" >Pai Mu Tan</a>
+                                    <a href="https://www.youtube.com/embed/P7Ss9p-PXzw" target="ifr-video" >Ceai Negru</a><br/>
+                                </div>
+                                <div id="ifr-videod"> <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/YuOHZ5OY1_c" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                            </div>
+                    </section>
+                    <section id="promotii">
+                        <h2>Promotii</h2>
+                        <article>
+                            <h3 class="titlu">Super ofertă de weekend!</h3>
+                            <p><b>Best Tea</b> oferă <b>reduceri de <s>10%</s> <ins>15%</ins></b> pentru toate produsele cumpărate în intervalul 10-14.</p>
+                            <p>Oferta este valabilă doar în zilele de sâmbătă și duminică la sediile <abbr title="Best Tea">BT</abbr>.</p>
+                            <p>In cazul în care achizitionati oricare 2 ceaiuri din meniu, primiti un croissant gratis.</p>
+                        </article>
+                        <article>
+                            <h3>Ofertă pachet</h3>
+                            <p>Ceainaria BestTea oferă pachete cuprinzând:</p>
+                            <ol>
+                                <li><i lang="en">Jasmine Tea</i> (puteti citi mai multe despre benificiile acestui ceai pe pagina <a href="https://en.wikipedia.org/wiki/Jasmine_tea" target="_blank"> link</a>)</li>
+                                <li>Un set de 4 pateuri de sortimente diferite</li>
+                                <li>O prajitură la alegere</li>
+                                <li>O cafea</li>
+                            </ol>
+                        </article>
+                    </section>
+                    <section id="produse">
+                        <img src="resurse/imagini/ceai2.jpg" style="max-width: 25vw;"> 
+                        <p>Pentru a descarca aceasta imagine vizitati link-ul <a href="resurse/imagini/ceai2.jpg" role="button" download>download</a></p>
+                        <h2>Produsele noastre</h2>
+                        <section>
+                            <ul>
+                                <li>Ceai</li>
+                                <li>Cafea</li>
+                                <li>Patiserie</li>
+                            </ul>
+                        </section>
+                    </section>
+                </div>
+                <!-- sfarsit zona custom -->
+            </div>
+            <!-- sfarsit grid -->
+        </main>
+        <footer>
+            <!-- task icon -->
+            <h2><i class="fa-solid fa-link"></i> Contact</h2>
+            <ul>
+                <!-- Când venim cu cursorul pe el se va afișa un tooltip cu un text care explică că e butonul care duce în susul paginii (veți pune propriul vostru text în locul lui "text explicativ"
+ -->
+                <li><a href="#" title="Mergi sus" id="link-top"><div id="sageata">&#129081;</div></a></li>
+                <li><a href="tel:0722222222">Telefonul BestTea</a></li>
+                <li><a href="mailto:besttea@gmail.com">Mail-ul BestTea</a></li>
+                <li><a href="https://wa.me/0722222222">Whatsapp BestTea</a></li>
+            </ul>
+            <address>
+                  <!-- task icon dinamic -->
+                <i class="fa-solid fa-location-dot fa-beat"></i> <a href="https://www.google.com/maps/dir//fmi/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x40b1ff472f47f047:0x493984726f0235f9?sa=X&ved=2ahUKEwiKt4DZrPD-AhUogP0HHT8DAq0Q9Rd6BAhMEAU">Strada Ceainariei 10, București, Sctor 1, Romania</a>
+            </address>
+            <small><time datetime="2023-05-12T21:01:00">&copy; BT2023</time></small>
+        </footer>
+    </body>
+</html>

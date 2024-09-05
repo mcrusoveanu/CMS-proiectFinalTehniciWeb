@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <%- include("../fragmente/head.ejs");  %> 
+        <link rel="stylesheet" href="/resurse/css/eroare.css">
+        <link rel="stylesheet" href="/resurse/css/despre.css">
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header.ejs");  %>
+        </header>
+        <main>
+            <video playsinline autoplay loop muted id="cover-video">
+                <source src="/resurse/video/video.mp4" type="video/mp4">
+                <source src="/resurse/video/video.ogv" type="video/ogv">
+            </video>
+            <div id="content-div">
+                <h2>Despre noi</h2>
+                <p id="two-columns">
+                    Cand admiram entuziasmul din ochii celor care ne trec pragul e inimitabila, iar zambetele pe care le-am nascut in micul loc cochet din centrul Bucurestilor ne ofera bucurie,
+                    putere si dorinta sa continuam ce-am inceput. Sa fie oare mandrie? Sau oare chiar am avut dreptate la inceput, spunand ca ceaiul da putere? 
+                    Azi sunt mult mai multe lucruri sigure decat la inceput… nu doar miile de cafele, ceaiuri sau bombonele impartite, nu doar afacerile, prieteniile sau cuplurile formate aici,
+                    ci si frumusetea Bucurestiului de altadata a fost restaurata la ceainaria noastra. Sa ducem povestea mai departe si sa spunem, cu curaj, ca viitorul va admira prezentul pe care-l adoram!    
+                </p>
+            </div>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer.ejs");  %> 
+        </footer>
+    </body>
+</html>

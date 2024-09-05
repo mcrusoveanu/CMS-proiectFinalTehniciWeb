@@ -1,0 +1,86 @@
+#hamburger {
+    display: block;
+    height: var(--inaltime-meniu);
+}
+
+#hamburger img {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: auto;
+}
+
+#ch-menu:checked~nav>ul.meniu {
+    display: block;
+    z-index: 5;
+    position: relative;
+}
+
+#ch-menu:checked~nav>ul.meniu ul {
+    z-index: 10;
+    position: relative;
+}
+
+ul.meniu li {
+    width: 100% !important;
+}
+
+ul.meniu ul {
+    width: 100%;
+}
+
+#acasa span{
+    display: none;
+}
+
+ul.meniu{
+    display: none;
+    background-color: var(--galben);
+    
+    mask-image: linear-gradient(black 70%, transparent);
+    -webkit-mask-image: linear-gradient(black 70%, transparent);
+    
+    mask-size: 100% 325%;
+    -webkit-mask-size: 100% 325%;
+
+    animation-name: animatie-gradient;
+    -webkit-animation-name: animatie-gradient;
+
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+
+    animation-duration: 5s;
+    -webkit-animation-duration: 5s;
+
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes animatie-gradient {
+    0% {
+        /* This property defines the position of the mask image relative to the element it's applied to. 
+        The mask image determines which parts of the element are visible (unmasked) and which are hidden (masked). */
+        -webkit-mask-position: 0 100%;
+        mask-position: 0 100%;
+        /* The mask image starts positioned at 0 100%, which means the mask is positioned at the bottom of the element.
+         This would typically mean that the element is fully masked (hidden) at the start. */
+    }
+    50% {
+        -webkit-mask-position: 0 50%;
+        mask-position: 0 50%;
+        /* At 50% of the animation, the mask position is moved to 0 50%, meaning the mask is now halfway down the element.
+         This would gradually reveal part of the element. */
+    }
+    100% {
+        -webkit-mask-position: 0 0;
+        mask-position: 0 0;
+        mask-image: none;
+        -webkit-mask-image: none;
+        /* At the end of the animation, the mask is fully moved to the top (0 0), making the entire element visible.
+          Additionally, mask-image: none; and -webkit-mask-image: none; are set, effectively removing the mask image entirely at the end of the animation. */
+    }
+}
+

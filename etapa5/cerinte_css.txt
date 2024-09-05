@@ -1,0 +1,8 @@
+reflexie - layoutmare.css -> pagina index.ejs
+scrierea textului pe coloane - despre.css -> pagina despre.ejs
+schimbarea afișării implicite a textului selectat - layoutmare.css si 
+    apare la selectia textului oriunde in site
+stilizare hr - layoutmare.css -> pagina index.ejs
+videoclip care se comporta ca un background - despre.css si despre.ejs
+
+0.15 + 0.025 + 0.025 + 0.1 + 0.05 = 0.35

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <%- include("../fragmente/head.ejs");  %> 
+        <link rel="stylesheet" href="/resurse/css/galerie.css">
+        <style>
+            main {
+                background-color: var(--galben-deschis);
+                box-shadow: -10px 10px 6px 0 var(--galben);
+                /*toate componentele din grid pagina au padding 10 px*/
+                padding: var(--padding);
+                border-radius: 50px;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header.ejs");  %>
+        </header>
+        <main>
+            <%- include("../fragmente/galerie.ejs");  %>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer.ejs");  %> 
+        </footer>
+    </body>
+</html>

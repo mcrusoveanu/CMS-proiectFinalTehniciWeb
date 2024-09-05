@@ -1,0 +1,51 @@
+<div id="banner">Acesta este un proiect scolar! <span id="cookie">Acceptati cookies? &ensp;<button id="ok_cookies" class="btn btn-primary shadow">Ok</button></span></div>
+<div id="bara-meniu">
+    <label id="hamburger" for="ch-menu">
+        <img src="/resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+    </label>
+    <input id="ch-menu" type="checkbox">
+    <nav>
+        <ul class="meniu">
+                <!-- task icon -->
+            <li>
+                <div id="acasa"><i class="fa-solid fa-house"></i> <span>Acasa</span></div>
+                <ul>
+                    <li><a href="/#welcome">Welcome</a></li>
+                    <li><a href="/#promotii">Promotii</a></li>
+                    <li><a href="/#anunturi">Anunturi</a></li>
+                    <li><a href="/#produse">Oferta</a></li>
+                    <li><a href="/#orar">Orar</a></li>
+                    <li><a href="/#index-intrebari">Întrebări</a></li>
+                </ul>
+            </li>
+            <li><div>Produse</div>
+                <!-- Meniu impartirea pe categorii mari  -->
+                <ul>
+                    <li><a href="/produse">Toate</a></li>
+                    <% for(let idx in locals.categorieMare){ %>
+                        <li>
+                            <!-- categorii ceai cafea etc -->
+                            <a href="/produse?tip=<%- locals.categorieMare[idx].unnest %>">
+                                <span style="text-transform: capitalize;"><%- locals.categorieMare[idx].unnest %></span>
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </li>
+            <li><a href="#">Inregistrare</a></li>
+            <li><a href="/despre">Despre</a></li>
+            <li><a href="/galerie">Galerie</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <!-- buton tema noapte -->
+                <!-- ms : margin from start iar p-0 padding 0 -->
+                <div class="form-check form-switch p-0">
+                    <input class="form-check-input bg-secondary mt-3 ms-1" type="checkbox" role="switch" id="theme" checked>
+                    <!--cursor: pointer ca sa apara pointer cand merg pe luna daca nu e asa nu apare   -->
+                    <label class="form-check-label" for="theme"><i style="cursor: pointer;" class="fa-solid fa-moon"></i></label>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+<h1>BestTea</h1>

@@ -1,0 +1,81 @@
+#grid-galerie {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+    counter-reset: nrimag 0;
+    // ca sa adaug litere tipar 
+}
+
+#grid-galerie figcaption {
+    text-align: center;
+    counter-increment: nrimag 1;
+}
+
+#grid-galerie figure {
+    width: min-content;
+}
+
+// inainte de figcaption
+#grid-galerie figcaption::before{
+    content: counter(nrimag, upper-alpha) "). ";
+    // aici
+    font-weight: bold;
+}
+
+#grid-galerie figure img {
+    transition: all 0.5s linear;
+}
+
+#grid-galerie figure img:hover {
+    transform: rotate(360deg) scale(1.5);
+    border-radius: 2rem;
+}
+
+@media screen and (max-width:1200px) {
+    #grid-galerie {
+        display:grid;
+        grid-template-columns: repeat(8,1fr);
+        // 8 equal-width columns.
+        
+        $row:1;
+        $col:1;
+        
+        @for $a from 1 through 7 {
+            // The code uses the figure:nth-child(#{$a})
+            //  selector to target the figure element at the nth position, 
+            // where n is the current value of $a.
+            figure:nth-child(#{$a}) {
+                @if $a % 3 == 1 {
+                    // grid-area: <row-start>  / <column-start> punctul din stanga sus
+                    // /<row-end> / <column-end>; punctul din dreapta jos 
+                    // coordonatele img 
+                    grid-area: #{$row} / #{$col} / #{$row+2} / #{$col+2};
+                    $col: $col + 2;
+                    
+                }
+                @if $a % 3 == 2 {
+                    grid-area: #{$row} / #{$col} / #{$row+2} / #{$col+2};
+                    @if($col == 3) {
+                        $col: 1;
+                    //  reset the value of the $col variable back to 1.
+                    }
+                }
+                @if $a % 3 == 0 {
+                    $row:$row+2;
+                    grid-area: #{$row} / 2 / #{$row+2} / 4;
+                    $row:$row+2;
+                    // is used to increment the value of the $row variable by 2
+                }
+            }
+        }
+    }
+}
+
+
+// sa se afiseze unul sub altul pe ecranul mic
+@media screen and (max-width:800px) {
+    #grid-galerie {
+        display:block;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/produs.js></script>
+        <link rel="stylesheet" href="/resurse/css/produse.css">
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header") %>
+        </header>
+        <main>
+            <section>
+                <h2>Pagină produs</h2>
+                <!--Descriere cerință. Pagină produs unic.. Se va genera automat prin program câte o pagină pentru fiecare produs (conform exemplului dat la curs si/sau laborator). 
+                Pagina respectivă va afisa toate detaliile
+                 produsului (inclusiv cele care nu apar in pagina de produse). Pentru asta, se trimit prin intermediul obiectului locals(ejs) datele produsulu  -->
+                    <article id="art-produs">
+                        <h3><span class="prod-nume"><%- locals.prod.nume %></span></h3>
+                        <figure class="imag-produs">
+                            <img src="/resurse/imagini/produse/<%- locals.prod.imagine %>/<%- locals.imagineProdCurent %>" class="imag-produs" alt="[imagine <%- locals.prod.nume %>]" />
+                        </figure>
+                        <% if(locals.prod.is_new == true) { %>
+                            <h4 class="text-secondary">Produs NOU!</h4>
+                        <% } %>
+                        <p>Pret: <span class="pret"><%- locals.prod.pret %> RON</span></p>
+                        <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                        <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>
+                        <p>Gramaj: <span class="gramaj"><%- locals.prod.gramaj %> g</span></p>
+                        <p>Categorie: <span class="categorie"><%- locals.prod.categorie_mare %> </span></p>
+                        <p>Contine cofeina: <span class="contine_cofeina"><%- locals.prod.contine_cofeina %> </span></p>
+                        <p>Data adăugare: <span class="data_adaugare"><%- locals.prod.data_adaugare %></span></p>
+                        <p>Recomandare servire: <span class="recomandare_servire"><%- locals.prod.recomandare_servire %> </span></p>
+                        <p>Livrare: <span class="livrare"><%- locals.prod.categorie_mica %> </span></p>
+                    </article>
+            </section>
+            <section>
+                <h2>Produse similare, care se servesc in aceeasi perioada a zilei (<%- locals.prod.recomandare_servire %>)</h2>
+                <% 
+                    let count = 0;
+                    for(let prod_similar of locals.prodSimilare) { 
+                        if(count % 3 == 0) { 
+                %>
+                            <div class="row">
+                <% 
+                        }
+                %>
+                        <article class="art-similar col-md">
+                            <h3><span class="nume"><%- prod_similar.nume %></span></h3>
+                            <figure class="imag-produs">
+                                <img src="/resurse/imagini/produse/<%- prod_similar.imagine %>/<%- locals.imaginiProdRelevante[count] %>" alt="[imagine <%- prod_similar.nume %>]" style="margin-right: 20px; border-radius: 20px;"/>
+                            </figure>
+                            <p>Pret: <span class="pret"><%- prod_similar.pret %> RON</span></p>
+                            <p>Descriere: <span class="descriere"><%- prod_similar.descriere %></span></p>
+                        </article>
+                <% 
+                        count++;
+                        if(count % 3 == 0 || count == locals.prodSimilare.length) { 
+                %>
+                            </div>
+                <% 
+                        }
+                    } 
+                %>
+            </section>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer") %>
+        </footer>
+    </body>
+</html>

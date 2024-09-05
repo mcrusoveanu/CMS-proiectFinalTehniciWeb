@@ -1,0 +1,122 @@
+<button id="toggleOrar" class="btn btn-primary">Afiseaza/Ascunde Orarul</button>
+<br />
+<section id="orar" style="display:none;">
+    <h2>Orar</h2>
+    <div id="tab-container">
+        <table id="tab-orar">
+            <caption>Orarul BestTea</caption>
+            <thead>
+                <tr>
+                    <th>Perioadă</th>
+                    <th>Zi</th>
+                    <th>Interval dimineata</th>
+                    <th>Pauza de masa</th>
+                    <th>Interval seară</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5">Zile<br/>Lucrătoare</td>
+                    <td>Luni</td>
+                    <td>08:30-11:30</td>
+                    <td>11:30-14</td>
+                    <td>14-20</td>
+                </tr>
+                <tr>
+                    <td>Marti</td>
+                    <td>9-12</td>
+                    <td>12-14</td>
+                    <td>14-21</td>
+                </tr>
+                <tr>
+                    <td>Miercuri</td>
+                    <td>9-11</td>
+                    <td>11-13</td>
+                    <td>14-21</td>
+                </tr>
+                <tr>
+                    <td>Joi</td>
+                    <td>9-11</td>
+                    <td>11-13</td>
+                    <td>14-21</td>
+                </tr>
+                <tr>  
+                    <td>Vineri</td>
+                    <td>9-12</td>
+                    <td>12-14</td>
+                    <td>14-19</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Weekend</td>
+                    <td>Sambata</td>
+                    <td>10-12</td>
+                    <td>12-13</td>
+                    <td>13-16</td>
+                </tr>
+                <tr>
+                    <td>Duminica</td>
+                    <td>10-14</td>
+                    <td>-</td>
+                    <td>inchis</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="5">Ne puteti contacta oricand in intervalele orare disponibile.</td>
+            </tfoot>
+        </table>
+        <div id="openStatus" style="color: var(--portocaliu-inchis); font-weight: bold;"></div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('toggleOrar').onclick = function() {
+        var orar = document.getElementById('orar');
+        orar.style.display = (orar.style.display == 'none' ? '' : 'none');
+        setTimeout(function() {
+            orar.style.display = 'none';
+        }, 10000);
+    };
+
+    function updateScheduleHighlighting() {
+        const now = new Date();
+        const dayOfWeek = now.getDay();
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const rows = document.querySelectorAll('#tab-orar tbody tr');
+        rows.forEach(row => {
+            if (row.cells[1].textContent === days[dayOfWeek]) {
+                row.style.backgroundColor = 'yellow';
+            }
+        });
+        updateOpenStatus(now);
+    }
+
+    function updateOpenStatus(date) {
+        const currentTime = date.getHours() + ':' + date.getMinutes();
+        const currentDay = date.getDay();
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const openStatus = document.getElementById('openStatus');
+
+        const schedule = {
+            'Monday': [{ start: '08:30', end: '20:00' }],
+            'Tuesday': [{ start: '09:00', end: '21:00' }],
+            'Wednesday': [{ start: '09:00', end: '21:00' }],
+            'Thursday': [{ start: '09:00', end: '21:00' }],
+            'Friday': [{ start: '09:00', end: '19:00' }],
+            'Saturday': [{ start: '10:00', end: '16:00' }],
+            'Sunday': [{ start: '10:00', end: '14:00' }]
+        };
+
+        const times = schedule[days[currentDay]] || [];
+        let isOpen = false;
+        times.forEach(time => {
+            if (currentTime >= time.start && currentTime < time.end) {
+                isOpen = true;
+            }
+        });
+
+        var status = isOpen ? "deschis acum" : "inchis acum"
+        openStatus.textContent = "Magazinul este " + status;
+    }
+
+    updateScheduleHighlighting();
+</script>

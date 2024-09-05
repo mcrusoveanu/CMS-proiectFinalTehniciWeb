@@ -1,0 +1,125 @@
+@mixin mixin1 {
+    font-weight: 900;
+    color: var(--maro);
+    transition: color 0.6s linear;
+}
+
+@mixin mixin2 {
+    color: var(--portocaliu-inchis);
+}
+
+
+header {
+    position: relative;
+    z-index: 20;
+}
+
+#bara-meniu {
+    background-color: var(--galben);
+    height: var(--inaltime-meniu);
+    width: 100vw;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+
+ul.meniu {
+    display:flex;
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    li {
+        color: var(--maro);
+        cursor:pointer;
+        background-color: var(--galben);
+        box-sizing:border-box;
+        a {
+            display:block;
+            height: 100%;
+            width: 100%;
+            @include mixin1;
+        }
+        div {
+            &:hover {
+                @include mixin2;
+            }
+        }
+        a {
+            &:hover {
+                @include mixin2;
+            }
+        }
+        &:hover {
+            ul {
+                animation-name: animatie_submeniu;
+                animation-duration: 0.7s;
+                animation-iteration-count: 1;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                transform-origin: center top;
+                display:block;
+            }
+        }
+    }
+    >li {
+        height: var(--inaltime-meniu);
+        overflow: hidden;
+        line-height: var(--inaltime-meniu);
+        vertical-align: middle;
+        width:var(--latime-buton);
+        text-align: center;
+        &:hover {
+            overflow:visible;
+        }
+    }
+    ul {
+        list-style-type: none;
+        z-index:10;
+        position:relative;
+        left:-1px;
+        padding:0;
+        margin:0;
+        display:none;
+        li {
+            height: var(--inaltime-meniu);
+            width:var(--latime-buton);
+            overflow: hidden;
+            top: -1px;
+            left: 0;
+            position: relative;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+#acasa 
+{
+    &:hover {
+        span {
+            @include mixin2;
+        }
+        i {
+            @include mixin2;
+        }
+    }
+    span{
+    font-weight: 900;
+    color: var(--galben);
+    transition: color 0.6s linear;
+    }
+}
+
+#hamburger, #ch-menu{
+    display:none;
+}
+
+@keyframes animatie_submeniu {
+    0%{
+      transform: scale(0,0);
+    }
+    100%{
+      transform: scale(1,1);
+    }
+}

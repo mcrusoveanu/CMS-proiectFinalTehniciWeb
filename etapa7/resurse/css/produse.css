@@ -1,0 +1,75 @@
+.produs{
+    max-width: 75vw;
+    background-color: var(--portocaliu-alb);
+    border-radius: 50px;
+    box-shadow: -10px 10px 0 0 var(--portocaliu-inchis);
+    color: white;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* imi ascunde butonul din cauza asta am dat display none */
+input[type="radio"], input[type='checkbox']{
+    display: none;
+}
+
+/* acel switch de langa luna sa fie prezent */
+.form-switch input{
+    display:initial !important;
+    /* initial  initial (or default) value */
+}
+
+/* butonul oricare galben, checked doar butonul bifat */
+input[type="radio"]:checked~label{
+    background-color: var(--galben);
+    color: var(--maro);
+}
+/* selecteaza si pret mai mic ca 10 ron  cea dea 2 obtiune */
+input[type="checkbox"]:checked~.bi-square, input[type="checkbox"]~.bi-check-square{
+    display: none;
+}
+
+input[type="checkbox"]:checked~.bi-check-square, input[type="checkbox"]~.bi-square{
+    display: inline;
+}
+
+/* select: This part of the selector targets all select elements (<select>), which are used to create dropdown menus. */
+input[type="text"], textarea, input[list="ingrediente"], select{
+    border: none !important;
+    border-radius: 0.5rem !important;
+    /* filtru greyscale  */
+    filter: var(--filtru) !important;
+}
+
+#inp-categ_mica{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+    .text-btn{
+        display: none;
+    }
+}
+
+.grid-produse{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+main {
+    background-color: var(--galben-deschis);
+    box-shadow: -10px 10px 6px 0 var(--galben);
+    /*toate componentele din grid pagina au padding 10 px*/
+    padding: var(--padding);
+    border-radius: 50px;
+    color: black;
+}
+
+.info-prod {
+    margin-left: 5px;
+}
+
+.c1 {
+    width: 300px;
+}

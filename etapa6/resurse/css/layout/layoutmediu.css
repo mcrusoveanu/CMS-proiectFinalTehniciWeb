@@ -1,0 +1,31 @@
+#grid-pagina{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas:"z-prezentare  z-prezentare"
+                        "z-prezentare  z-prezentare"
+                        "z-intrebari   z-intrebari"
+                        "z-custom   z-custom"
+                        "z-custom   z-custom"
+                        "z-custom   z-custom"
+                        "z-calendar z-utiliz-stat"
+                        "z-lista-utiliz    z-utiliz-stat"
+                        "z-lista-utiliz    z-anunturi"
+                        "z-site-server     z-anunturi";
+    gap: var(--spatiere-medie);
+}
+
+body{
+    font-size: 12px;
+    margin-left: var(--spatiere-medie);
+    margin-right: var(--spatiere-medie);
+}
+
+#tab-container{
+    overflow-x: auto;
+    width: 70vw !important;
+}
+
+iframe{
+    max-width: 75vw !important;
+}
+

@@ -1,0 +1,286 @@
+#grid-pagina{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    
+    grid-template-areas: "z-prezentare   z-prezentare  z-prezentare  z-prezentare"
+                         "z-prezentare   z-prezentare  z-prezentare  z-prezentare"
+                         "z-calendar     z-tabel       z-tabel       z-anunturi"
+                         "z-lista-utiliz z-tabel       z-tabel       z-anunturi"
+                         "z-lista-utiliz z-utiliz-stat z-utiliz-stat z-site-server"
+                         "z-custom       z-custom      z-custom      z-custom";
+                                    
+    /* adauga o spatiere intre elementele grid-ului */
+    gap: var(--spatiere-mare);
+}               
+
+body{
+    --galben: #FFAC0D;
+    --galben-deschis: #fad592;
+    --portocaliu-alb: #e2af70;
+    --galben-inchis: #E8840C;
+    --portocaliu-deschis: #FF6600;
+    --portocaliu : #E8440C;
+    --portocaliu-inchis: #FF270D;
+    --portocaliu-alb: #d04a3b;
+    --maro:#2A0000;
+    --inaltime-meniu:50px;
+    --latime-buton:150px;
+    --spatiere-mare: 20px;
+    --spatiere-medie: 15px;
+    --spatiere-mica: 10px;
+    --padding: 30px;
+
+    font-size: 14px; 
+    color:var(--maro);
+    font-family: 'Montserrat', sans-serif; /*https://fonts.google.com*/
+    margin-left: var(--spatiere-mare);
+    margin-right: var(--spatiere-mare);
+}
+
+#welcome{
+    grid-area: z-prezentare;
+}
+
+#orar{
+    grid-area: z-tabel;
+}
+
+#custom{
+    grid-area:z-custom;
+}
+
+#calendar{
+    grid-area: z-calendar;
+}
+
+#utiliz-stat{
+    grid-area: z-utiliz-stat;
+}
+
+#lista-utiliz{
+    grid-area:z-lista-utiliz;
+}
+
+#site-server{
+    grid-area: z-site-server;
+
+}
+
+#anunturi{
+    grid-area:z-anunturi;
+}
+
+
+#ifr-videod{
+    border: none !important;
+    border: 0 !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    -webkit-box-shadow: none !important; /* For older versions of Safari */
+    -moz-box-shadow: none !important; /* For older versions of Firefox */
+}
+
+/* stilizare taburi iframe*/
+.taburi-iframe{
+    display: flex; /*imparte elementele din interior in coloane*/
+    justify-content: center; /*echivalent text align center dar pentru elemente block nu text*/
+}
+
+/*
+    dimensioneaza div-ul care contine iframe ul (container-iframe) la dimensiunea maxima a continutului acestuia (in cazul nostru video-ul)
+    si ajuta la centrarea taburilor pe mijlocul video-ului
+*/
+.container-iframe{
+    width: max-content;
+}
+
+.taburi-iframe a{
+    padding: 5px;
+    text-decoration:none;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: none;
+    box-shadow: 0 0 2px 2px var(--portocaliu-inchis);
+    border-top-left-radius:6px; /*colturi rotunjite*/
+    border-top-right-radius: 6px; /*colturi rotunjite*/
+    color: white;
+    background-color: var(--portocaliu-deschis) !important; /*suprascriere*/
+    transition: background-color 1s linear;  /*la hover se schimba culoarea de background in var(--portocaliu-alb) din var(--portocaliu-deschis) - schimbarea se realieaza printr-o tranzitie liniara de 1 secunda*/
+}
+
+.taburi-iframe a:hover{
+    background-color: var(--portocaliu-alb) !important;
+}
+
+#tab-orar{
+    width: max-content;
+    text-align: center;
+    border-collapse: collapse;/*pentru a scapa de border dublu intre celulele tabelului */
+}
+
+#tab-orar th, #tab-orar caption{
+    border: 1px solid white ; /*in loc de solid poatte sa fie si dotted sau double daca e double si dau border collapse scap de border dublul la celule */
+    padding: 5px;
+    color: white; /*scris*/
+    font-weight: bold;
+}
+
+
+#tab-orar {
+    border-collapse: collapse;
+}
+
+#tab-orar th:nth-child(even),
+/* tr:nth-child(n+2) - {tr - tr[1]} - toate tag-urile tr, mai putin primul*/
+#tab-orar tbody tr:nth-child(n+2) td:nth-child(odd), 
+#tab-orar tbody tr:nth-child(1) td:nth-child(even) {
+    color: var(--portocaliu-inchis);
+}
+
+/* tr:nth-last-child(2) - penultimul copil (tr) */
+#tab-orar tbody tr:nth-last-child(2) td:nth-child(even) {
+    color: var(--portocaliu-inchis) !important;
+}
+
+#tab-orar th:nth-child(odd),
+#tab-orar tbody tr:nth-child(n+2) td:nth-child(even), 
+#tab-orar tbody tr:nth-child(1) td:nth-child(odd) {
+    color: var(--maro);
+}
+
+#tab-orar tbody tr:nth-last-child(2) td:nth-child(odd) {
+    color: var(--maro) !important;
+}
+
+#tab-orar tr td, #tab-orar tr th {
+    border: 1px solid white ; /*in loc de solid poatte sa fie si dotted sau double daca e double si dau border collapse scap de border dublul la celule */
+    padding: 5px;
+    font-weight: bold;
+    background-color: var(--galben-deschis);
+    transition: background-color 0.3s linear, color 0.3s linear, border-width 0.3s linear;
+}
+
+/* cerinta hoover */
+#tab-orar tr:hover td, #tab-orar tr:hover th {
+    background-color: var(--portocaliu-deschis);
+    color: var(--galben-deschis) !important;
+    border-width: 5px !important;
+}
+
+#tab-orar caption{
+    caption-side: bottom;/*modifica pozitia captionului care e default in partea de sus  https://www.w3schools.com/cssref/tryit.php?filename=trycss_caption-side*/
+    background-color: var(--galben-inchis);
+    text-align: center;
+}
+
+
+/* cerinta bordder dublu */
+#tab-orar {
+    border: 5px double var(--maro);
+}
+
+/*scroll bar orizontal pentru micsorarea ecranului*/
+#tab-container{
+    overflow-x: auto;
+    width: 40vw !important;
+}
+
+#link-top{
+    /* are pozitie fixa indiferent de scroll si restul paginii */
+    position:fixed;
+    opacity:0.8;
+    /* offset-ul fata de coltul dreapta (right) si jos (bottom) = 0.3em*/
+    bottom: 0.3em;
+    right: 0.3em;
+    /* dimensiuni egale pentru inaltime si latime -> patrat */
+    width:3rem;
+    height:3rem;
+
+    /* line-height: centrare verticala si text-align: centrare orizontala */
+    line-height:3.25rem;
+    text-align: center;
+
+    text-decoration: none;
+    /* inset - pentru ca box shadow sa apara in interiorul elementului */
+    box-shadow: 0 0 6px 6px var(--portocaliu-inchis) inset;
+
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+
+    background-color: var(--galben);
+    transition: opacity 0.5s linear;
+}
+
+#link-top:hover{
+    opacity: 1;
+}
+
+#link-top #sageata{
+    /* se mareste de la dimensiunea default a sagetii de 2x */
+    transform: scale(2);
+    transition: transform 0.5s linear;
+    color: var(--maro);
+}
+
+#link-top:hover #sageata{
+    transform: scale(4.5);
+}
+
+#dv-prezentare img{
+    max-width: 50vw !important;
+}
+
+iframe{
+    max-width: 35vw !important;
+}
+
+footer {
+    background-color: var(--portocaliu-alb);
+    border-radius: 50px;
+    box-shadow: -10px 10px 6px 0 var(--portocaliu-inchis);
+    padding: var(--padding);
+    color: white;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+main{
+    margin-bottom: var(--spatiere-mare);
+}
+
+header h1{
+    background-color: var(--portocaliu-alb);
+    border-radius: 50px;
+    box-shadow: -10px 10px 6px 0 var(--portocaliu-inchis);
+    padding: 5px;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: 80px;
+     /*toate componentele din grid pagina au padding 10 px cerinta*/
+    padding: var(--padding);
+}
+
+/* primele elemente ca ierarhie din # grid pagina selecteaza primele elemente ca ierarhie  section orar section welcome */
+#grid-pagina > * {
+    background-color: var(--galben-deschis);
+    box-shadow: -10px 10px 6px 0 var(--galben);
+    border: 3px solid var(--maro);
+    /*toate componentele din grid pagina au padding 10 px cerinta*/
+    padding: var(--padding);
+    border-radius: 50px;
+    color: black;
+}
+
+#banner {
+    display: none;
+}
+
+#watermark {
+    display: none;
+}

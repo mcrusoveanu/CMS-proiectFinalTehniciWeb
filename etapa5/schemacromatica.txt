@@ -1,0 +1,7 @@
+#FFAC0D Această culoare poate fi descrisă ca o nuanță strălucitoare și vibrantă de portocaliu. Are o intensitate mare și amintește de un fruct de portocală copt și suculent.
+#E8840C Această culoare poate fi descrisă ca o nuanță profundă și bogată de portocaliu. Are un ton puțin mai închis față de culoarea anterioară, dându-i un aspect mai intens și mai îndrăzneț.
+#FF6600 Această culoare poate fi descrisă ca o nuanță vie, de foc de portocaliu. Este foarte luminos și se remarcă prin saturația sa puternică. Această culoare seamănă cu culoarea unui apus de soare vibrant sau a unui foc aprins.
+#E8440C Această culoare poate fi descrisă ca o portocalie închisă, ars. Are un ton profund, cald, care evocă sentimente de toamnă și de recoltă. Această nuanță de portocaliu are o prezență și profunzime puternice
+#FF270D Această culoare poate fi descrisă ca o nuanță îndrăzneață, intensă de roșu-portocaliu. Se înclină mai mult spre spectrul roșu, cu un strop de portocaliu. Este vibrantă și atrăgătoare, transmite energie și pasiune.
+//maro text
+#2A0000 Această culoare poate fi descrisă ca o nuanță foarte închisă de maro. Este aproape negru, dar are o nuanță subtilă de roșu intens. Pare bogat și misterios și evocă adesea un sentiment de profunzime și eleganță.

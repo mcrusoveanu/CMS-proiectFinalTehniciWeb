@@ -1,0 +1,34 @@
+#two-columns {
+    column-count: 2;
+    column-gap: 20px;
+    column-rule: 1px solid var(--maro);
+    /* linia care desparte */
+}
+
+@media screen and (max-width:1200px) {
+    #two-columns {
+        column-count: 1;
+        column-rule: none;
+        /* mediu spre mic sa fie pe o cooloana */
+    }
+}
+
+main {
+    margin: 100px;
+}
+
+#cover-video {
+    object-fit: cover;
+    /* pe toata dim ecranului */
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#content-div {
+    position: relative;
+    z-index: 1;
+}

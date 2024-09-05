@@ -1,0 +1,22 @@
+#grid-pagina{
+    display: block;
+}
+
+body{
+    font-size: 10px;
+    margin-left: var(--spatiere-mica);
+    margin-right: var(--spatiere-mica);
+}
+
+#tab-container{
+    overflow-x: auto;
+    width: 70vw !important;
+}
+
+iframe{
+    max-width: 75vw !important;
+}
+
+.text-btn{
+    display: none;
+}

@@ -1,0 +1,142 @@
+<button id="toggleOrar" class="btn btn-primary">Afiseaza/Ascunde Orarul</button>
+<br />
+<section id="orar" style="display:none;">
+    <h2>Orar</h2>
+    <div id="tab-container">
+        <table id="tab-orar">
+            <caption>Orarul BestTea</caption>
+            <thead>
+                <tr>
+                    <th>Perioadă</th>
+                    <th>Zi</th>
+                    <th>Interval dimineata</th>
+                    <th>Pauza de masa</th>
+                    <th>Interval seară</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5">Zile<br/>Lucrătoare</td>
+                    <td>Luni</td>
+                    <td>08:30-11:30</td>
+                    <td>11:30-14</td>
+                    <td>14-20</td>
+                </tr>
+                <tr>
+                    <td>Marti</td>
+                    <td>9-12</td>
+                    <td>12-14</td>
+                    <td>13-21</td>
+                </tr>
+                <tr>
+                    <td>Miercuri</td>
+                    <td>9-11</td>
+                    <td>11-13</td>
+                    <td>13-21</td>
+                </tr>
+                <tr>
+                    <td>Joi</td>
+                    <td>9-11</td>
+                    <td>11-13</td>
+                    <td>13-21</td>
+                </tr>
+                <tr>  
+                    <td>Vineri</td>
+                    <td>9-12</td>
+                    <td>12-14</td>
+                    <td>14-19</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Weekend</td>
+                    <td>Sambata</td>
+                    <td>10-12</td>
+                    <td>12-13</td>
+                    <td>13-16</td>
+                </tr>
+                <tr>
+                    <td>Duminica</td>
+                    <td>10-14</td>
+                    <td>-</td>
+                    <td>inchis</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="5">Ne puteti contacta oricand in intervalele orare disponibile.</td>
+            </tfoot>
+        </table>
+        <div id="openStatus" style="font-weight: bold;"></div>
+    </div>
+</section>
+
+<script>
+    // orarul dispare de pe ecran la click pe buton sau dupa 10000 ms
+    document.getElementById('toggleOrar').onclick = function() {
+        var orar = document.getElementById('orar');
+        orar.style.display = (orar.style.display == 'none' ? 'block' : 'none');
+        setTimeout(function() {
+            orar.style.display = 'none';
+        }, 10000);
+    };
+
+    // coloreaza tabelul si apeleaza functia de actualizare status deschis/inchis
+    function updateScheduleHighlighting() {
+        const now = new Date();
+        const dayOfWeek = now.getDay();
+        const days = ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'];
+        const rows = document.querySelectorAll('#tab-orar tbody tr');
+        rows.forEach((row, idx) => {
+            // rows.forEach((row, idx) => {...});: Loops through each row of the schedule table.
+            const cells = row.getElementsByTagName("TD");
+            // const cells = row.getElementsByTagName("TD");: Gets all the table cells (<td>) within the current row.
+            cellIdx = !(idx == 0 || idx == 5) ? 0 : 1;
+            //  Determines the index of the cell to check based on the row index (idx). For the first (idx == 0) and sixth (idx == 5) rows, it checks the second cell (cellIdx = 1), otherwise it checks the first cell (cellIdx = 0)
+            if (cells[cellIdx].textContent === days[dayOfWeek]) {
+                // Compares the text content of the relevant cell to the current day of the week. If they match, it means that this row corresponds to the current day.
+                Array.from(cells).forEach((cell) => {
+                    // colorare rand cu ziua curenta din saptamana in orar
+                    cell.style.backgroundColor = 'var(--galben)';
+                    // Array.from(cells).forEach((cell) => {...});: Converts the cells into an array and iterates over them.
+                    // cell.style.backgroundColor = 'var(--galben)';: Sets the background color of each cell in the current row to a custom color defined by the CSS variable --galben.
+                    // 
+                })
+            }
+        });
+        // si apeleazafunctia de status deschis/inchis
+        updateOpenStatus(now);
+    }
+
+    // seteaza status inchis sau deschis
+    function updateOpenStatus(date) {
+        const currentTime = date.getHours() + ':' + date.getMinutes();
+        const currentDay = date.getDay();
+        const days = ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'];
+        const openStatus = document.getElementById('openStatus');
+        
+        const schedule = {
+            'Luni': [{ start: '08:30', end: '20:00' }],
+            'Marti': [{ start: '09:00', end: '21:00' }],
+            'Miercuri': [{ start: '09:00', end: '21:00' }],
+            'Joi': [{ start: '09:00', end: '21:00' }],
+            'Vineri': [{ start: '09:00', end: '19:00' }],
+            'Sambata': [{ start: '10:00', end: '16:00' }],
+            'Duminica': [{ start: '10:00', end: '14:00' }]
+        };
+        
+        const times = schedule[days[currentDay]] || [];
+        // currentDay is an index into the days array, so days[currentDay] gets the name of the day that corresponds to the current index. For example, if currentDay is 0, days[currentDay] would be 'Luni'.
+        let isOpen = false;
+        // verifica daca ora curenta se afla in intervalul ora-start - ora-end a zilei curente
+        times.forEach(time => {
+            if (currentTime >= time.start && currentTime < time.end) {
+                isOpen = true;
+            }
+        });
+
+        // seteaza statusul
+        var status = isOpen ? "deschis acum" : "inchis acum";
+        openStatus.textContent = "Magazinul este " + status;
+        openStatus.style.color = isOpen ? "var(--maro)" : "var(--portocaliu-inchis)";
+    }
+
+    updateScheduleHighlighting();
+</script>

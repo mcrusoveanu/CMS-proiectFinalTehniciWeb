@@ -1,0 +1,44 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+   // sunt suprascrise variabilele din fisierul original de bootstrap si apoi este compilat
+   $primary: #FFAC0D,
+   $secondary: #FF6600,
+   $light: #e2af70,
+   $dark: #2A0000,
+   
+   $grid-breakpoints: (
+        xs: 0,
+        sm: 500px,
+        md: 700px,
+        lg: 1000px,
+        xl: 1500px,
+        xxl: 1900px
+   ),
+   
+   $border-radius: .5rem,
+   $border-radius-sm: 1rem,
+   $border-radius-lg: 3rem,
+   $border-radius-xl: 5rem,
+   $border-radius-2xl: 10rem,
+   $border-radius-pill: 50rem,
+
+   $h1-font-size: 2.4rem,
+   $h2-font-size: 2rem,
+   $h3-font-size: 1.7rem,
+   $h4-font-size: 1.4rem,
+   $h5-font-size: 1.1rem,
+   $h6-font-size: 1rem,
+
+   $font-family-sans-serif: 'Montserrat',
+
+   $headings-margin-bottom: 1rem,
+   $headings-font-weight: 550,
+
+   $box-shadow: -0.3rem 0.3rem 0 0 #FF6600,
+
+   // Pentru inputul de tip range ,schimbati cu ajutorul customizarii bootstrap (prin variabile scss) dimensiunea bulinei care gliseaza (sa
+   // fie cu 50% mai mare fata de dimensiunea font-size-ului html-ului), schimbati de asemenea culoarea bulinei si culoarea sliderului.
+   // Variabilele necesare se gasesc in reference:
+   $form-range-track-bg: #e2af70,
+   $form-range-thumb-bg: #FF6600,
+   $form-range-thumb-width: 1.5rem
+);

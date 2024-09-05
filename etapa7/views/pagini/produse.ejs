@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src="/resurse/js/produse.js" defer></script>
+        <link rel="stylesheet" href="/resurse/css/produse.css">
+        <script type="text/javascript" src=/resurse/js/acordeon.js></script>
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header") %>
+        </header>
+        <main>
+            <div id="filtre">
+                <div class="row">
+                    <div class="col">
+                        <% console.log(locals.minPriceProduse) %>
+                        <label>Nume: 
+                            <!-- a)În inputul de tip text se va introduce numele produsului. Se poate introduce și partial și se vor afișa toate produsele al căror nume conține acel șir. -->
+                            <!-- form control bootstrap -->
+                            <!--   nputul de tip textarea va avea un floating label (bootstrap). In cazul validarii esuate a valorii din textarea (vezi cerinta cu validarea
+                              din etapa 5), floating label-ul va fi de tip is-invalid (se va seta prin javascript) si se va corecta automat daca valoarea din textarea
+                              devine valida.  -->
+                            <input type="text" id="inp-nume" class="form-control">
+                            <small style="display:none; color: red" id="message-invalid-nume">
+                                Inputuri gresite!
+                            </small>
+                        </label>
+                    </div>
+                    
+                    <div class="col">
+                        <div>Recomandare servire:
+                            <!-- pentru carcateristica booleană se vor face doua butoane de tip radio cu etichetele "da/nu" sau "are/nu are" 
+                                sau alte etichete relevante. Va fi și un al treilea radiobutton în grup, cu valoarea "toate"
+                            -->
+                            <!-- Fie inputurile de tip checkbox fie cele radio vor fi stilizate ca toogle buttons (din bootstrap). Butoanele deslectate trebuie sa fie
+                               desenate in stil outline (adica sa apara doar granita, fara background si textul sa fie colorat), iar la selectare sa apara cu background
+                               colorat - vezi clasele btn-outline ). -->
+                            <% for(let i in locals.optiuni) { 
+                                let idx = parseInt(i); 
+                            %>
+                                <p>
+                                    <input id="i_rad<%-idx+1%>"  name="gr_rad" value="<%-locals.optiuni[idx].recomandare_servire%>" type="radio"/>
+                                    <label class="btn btn-outline-primary mb-1" for="i_rad<%-idx+1%>"><%-locals.optiuni[idx].recomandare_servire%></label>
+                                </p>
+                            <% } %>
+                            <p>
+                                <input id="i_rad<%-locals.optiuni.length+1%>" name="gr_rad" value="oricare" type="radio" checked/>
+                                <label class="btn btn-outline-primary mb-1" for="i_rad<%-locals.optiuni.legth+1%>">oricare</label>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <label>Descriere:
+                            <!-- textarea -->
+                            <textarea id="inp-descriere" rows="1" cols="10" class="form-control"></textarea>
+                            <small style="display:none; color: red" id="message-invalid-desc">
+                                Inputuri gresite!
+                            </small>
+                        </label>
+                    </div>
+
+                    <div class="col">
+                        <label>
+                            <!-- input de tip checkbox sau grup de inputuri de tip checkbox (în funcție de tipul de filtru)-->
+                            Pret &lt; <%-parseFloat(locals.meanPrice).toFixed(2)%> RON:
+                            <input type="checkbox" id="inp-pret" value="<%-parseFloat(locals.meanPrice).toFixed(2)%>">
+                            <i class="bi bi-check-square"></i>
+                            <i class="bi bi-square"></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <!-- b)inputul de tip range va fi pentru a doua caracteristică numerică, nu pentru preț. 
+                            Va avea atributul step setat Si va afișa toate produsele cu valoare numerică mai mare decât cea din inputul range-->
+                        <label class="form-label">Gramaj minim: <input type="range" id="inp-gramaj" class="form-range" value="<%-minGramaj%>" min="<%-minGramaj%>" max="<%-maxGramaj%>" step="25">
+                            <span id="infoRange">(<%-minGramaj%>)</span>
+ 
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label>Contine cofeina
+                            <br>
+                            <select id="inp-contine_cofeina" class="form-select">
+                                <option id="sel-toate" selected value="oricare">oricare</option>
+                                <option value="true">da</option>
+                                <option value="false">nu</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label>Luna adaugare:
+                            <br>
+                            <select multiple id="inp-luna_adaugare" class="form-select">
+                                <option id="sel-toate-multiplu" selected value="toate">toate</option>
+                                <option value="Ianuarie">ianuarie</option>
+                                <option value="Februarie">februarie</option>
+                                <option value="Martie">martie</option>
+                                <option value="Aprilie">aprilie</option>
+                                <option value="Mai">mai</option>
+                                <option value="Iunie">iunie</option>
+                                <option value="Iulie">iulie</option>
+                                <option value="August">august</option>
+                                <option value="Septembrie">septembrie</option>
+                                <option value="Octombrie">octombrie</option>
+                                <option value="Noiembrie">noiembrie</option>
+                                <option value="Decembrie">decembrie</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label> Ingrediente:
+                            <input list="ingrediente" id="inp-ingrediente" class="form-control">
+                            <datalist id="ingrediente">
+                                <% for(let ingredient of locals.ingredients) {%>
+                                    <option value="<%-ingredient%>"></option>
+                                <% } %>
+                            </datalist>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <p id="butoane-filtrare">
+                <p id="p-suma"></p>
+                <!-- top and bottom -->
+                <button id="filtrare" class="btn btn-primary my-2"><span><i class="bi bi-filter"></i></span> <span class="text-btn">Filtreaza</span></button>
+                <button id="resetare" class="btn btn-primary my-2"><span><i class="bi bi-x"></i></span> <span class="text-btn">Reseteaza</span></button>
+                <br>
+                <button id="calculare" class="btn btn-primary mb-2"><span><i class="bi bi-plus"></i></span> <span class="text-btn">Calculeaza suma preturilor afisate</span></button>
+
+                <div class="row">
+                    <label class="col">Criterii de sortare
+                        <br>
+                        <select id="inp-crit_sortare" class="form-select">
+                            <option selected value="pret_gramaj">pret si gramaj</option>
+                            <option value="pret_nr_ingrediente">pret si numar de ingrediente</option>
+                            <option value="gramaj_nr_ingrediente">gramaj si numar de ingrediente</option>
+                            <hr>
+                            <option selected value="gramaj_pret">gramaj si pret</option>
+                            <option value="nr_ingrediente_pret">numar de ingrediente si pret</option>
+                            <option value="nr_ingrediente_gramaj">numar de ingrediente si gramaj</option>
+                        </select>
+                    </label>
+    
+                    <label class="col">Tipul sortarii
+                        <br>
+                        <select id="inp-tip_sortare" class="form-select">
+                            <option selected value="crescator">crescator</option>
+                            <option value="descrescator">descrescator</option>
+                        </select>
+                    </label>
+                </div>
+                <br>
+                <button id="sort" class="btn btn-primary mb-2"><span><i class="bi bi-arrow-down-up"></i></span> <span class="text-btn">Sorteaza</span></button>
+            </p>
+            <section id="produse">
+                <div class="grid-produse">
+                    <%
+                        let count = 0;
+                        for(let prod of locals.produse) { 
+                    %>
+                        <!-- Id-ul fiecarui articol este de forma 'elem_'+id, unde id e id-ul efectiv din fisierul de date (deci id-uri posibile ar fi: elem_2, elem_7, ...) -->
+                        <article class="produs <%- prod.categorie_mica %>" id="produs_<%-prod.id %>">
+                            <h3 class="nume">Nume: <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"><span class="val-nume"><%- prod.nume %></span></a></h3>
+                            <% if(prod.is_new == true) { %>
+                                <h4 class="text-light">Produs NOU!</h4>
+                            <% } %>
+                            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content text-dark bg-light">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="exampleModalLabel">Informatii complete produs</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4><%- prod.nume %></h4>
+                                            <p>Pret: <span class="pret"><%- prod.pret %> RON</span></p>
+                                            <p>Descriere: <span class="descriere"><%- prod.descriere %> </span></p>
+                                            <p>Ingrediente: <span class="ingrediente"><%- prod.ingrediente %> </span></p>
+                                            <p>Gramaj: <span class="gramaj"><%- prod.gramaj %> g</span></p>
+                                            <p>Categorie: <span class="categorie"><%- prod.categorie_mare %> </span></p>
+                                            <p>Contine cofeina: <span class="contine_cofeina"><%- prod.contine_cofeina %> </span></p>
+                                            <p>Data adăugare: <span class="data_adaugare"><%- prod.data_adaugare %></span></p>
+                                            <p>Recomandare servire: <span class="recomandare_servire"><%- prod.recomandare_servire %> </span></p>
+                                            <p>Livrare: <span class="livrare"><%- prod.categorie_mica %> </span></p>
+                                        </div>
+                                        <div class="modal-footer justify-content-end">
+                                            <button type="button" class="btn btn-secondary text-dark" data-bs-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- wrap text in function of the image -->
+                            <div style="display: flex">
+                                <div>
+                                    <div id="carousel<%- prod.id %>" class="carousel slide c1" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(let i = 0; i < locals.imagini_produse[count].length; i++) { %>
+                                                <div class="carousel-item carousel <%- i == 0 ? "active" : "" %>">
+                                                    <img class="d-block w-100" src="/resurse/imagini/produse/<%- prod.imagine %>/<%- locals.imagini_produse[count][i] %>" alt="[imagine <%- prod.nume %>]">
+                                                </div>
+                                        <% } %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%- prod.id %>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel<%- prod.id %>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                    <p>Categorie: <span class="val-categorie"><%- prod.categorie_mare %></span></p>
+                                    <p>Pret: <span class="val-pret"><%- prod.pret %> RON</span></p>
+                                </div>
+                                <div class="info-prod">
+                                    <details><summary>Specificatii</summary>
+                                        <p><b>Recomandare servire: </b><i class="val-recomandare_servire"><%- prod.recomandare_servire %></i></p>
+                                        <p><b>Ingrediente: </b><i class="val-ingrediente"><%- prod.ingrediente.join(', ') %></i></p>
+                                        <p><b>Gramaj: </b><i class="val-gramaj"><%- prod.gramaj %> g</i></p>
+                                        <p><b>Data adaugare: </b><time><i class="val-data_adaugare"><%- prod.data_adaugare %></i></time></p>
+                                        <p><b>Contine cofeina: </b><i class="val-contine_cofeina"><%- prod.contine_cofeina ? 'Da' : 'Nu' %></i></p>
+                                    </details>
+                                    <div class="accordion" id="accordion<%- count + 1 %>">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="btn btn-transparent text-dark no-outline acc-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%- count + 1 %>" aria-expanded="true" aria-controls="collapse<%- count + 1 %>">
+                                                Descriere
+                                                </button>
+                                            </h2>
+                                            <div id="collapse<%- count + 1 %>" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion<%- count + 1 %>">
+                                                <div class="accordion-body">
+                                                    <p><b>Descriere: </b><i class="val-descriere"><%- prod.descriere %></i></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p><b>Livrare: </b><i class="val-livrare"><%- prod.categorie_mica %></i></p>
+                                </div>
+                            </div>
+                            <% if (locals.minPretProduse && locals.minPretProduse.some(minProd => minProd.id === prod.id)) { %>
+                                <div style="font-weight: bold;">
+                                    Produsul este cel mai ieftin din categoria de <%- prod.categorie_mare %>!
+                                </div>
+                            <% } %>
+                            <a href="/produs/<%-prod.id%>"><b>Pagina inidviduala produs</b></a>
+                            <br />
+                            <label class="selecteaza-cos">
+                                Selectează:
+                                <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                                <i class="bi bi-check-square"></i>
+                                <i class="bi bi-square"></i>
+                            </label>
+                        </article>
+                    <% 
+                        count++;
+                    } 
+                    %>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer") %>
+        </footer>
+    </body>
+</html>

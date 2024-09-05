@@ -1,0 +1,112 @@
+#bara-meniu {
+    background-color: var(--galben);
+    height: var(--inaltime-meniu);
+    width: 100vw;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+
+ul.meniu{
+    /* afiseaza fiecare li pe cate o coloana */
+    display:flex;
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+
+ul.meniu li a {
+    display:block;
+    /* height:100% - pentru a avea inaltimea egala cu inalimea intregului buton */
+    height: 100%;
+    width: 100%;
+}
+
+#acasa span{
+    font-weight: 900;
+    color: var(--galben);
+    transition: color 0.6s linear;
+}
+
+ul.meniu li a, ul.meniu li div:nth-child(n+2), #acasa i{
+    font-weight: 900;
+    color: var(--maro);
+    transition: color 0.6s linear;
+}
+
+ul.meniu li a:hover, ul.meniu li div:hover, #acasa:hover span, #acasa:hover i {
+    color: var(--portocaliu-inchis);
+}
+
+/* sunt selectate doar primele li din meniu (ca ierarhie) */
+ul.meniu>li{
+    height: var(--inaltime-meniu);
+    /* este vizibil doar textul din tagul <a>, nu si <ul> - pentru ca <ul> ar iesi din dimensiunile butonului, asa ca nu se mai afiseaza */
+    overflow: hidden;
+    line-height: var(--inaltime-meniu);
+    vertical-align: middle;
+    width:var(--latime-buton);
+    text-align: center;
+}
+  
+/*ma ajuta sa imi asez elementele din acasa*/
+ul.meniu ul{
+    /* nu se afiseaza bulinutele de la li */
+    list-style-type: none;
+    z-index:10;
+    position:relative;
+    padding:0;
+    margin:0;
+    display:none;
+}
+  
+ul.meniu li:hover ul{
+    animation-name: animatie_submeniu;
+    animation-duration: 0.7s;
+    /* de cate ori se repeta animatia */
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    /* transformarea incepe pe x - din centru, pe y - de sus */
+    transform-origin: center top;
+    display:block;
+}
+  
+ul.meniu ul li{
+    height: var(--inaltime-meniu);
+    width:var(--latime-buton);
+    /* nu se afiseaza pentru li-urile care contin si submeniu (un alt ul) decat <a>, nu si <ul> */
+    overflow: hidden;
+}
+  
+ul.meniu li{
+    color: var(--maro);
+    /* mouse-ul se transforma in manuta */
+    cursor:pointer;
+    background-color: var(--galben);
+    /* elementul (butonul) va avea dimesiunea lui in width si height + dimeniunea border-ului + dimeniunea padding-ului -> fara margin */
+    box-sizing:border-box;
+}
+  
+/* afiseaza ul din li */
+ul.meniu>li:hover{
+    overflow:visible;
+}
+  
+ul.meniu a{
+    text-decoration: none;
+}
+  
+#hamburger, #ch-menu{
+    display:none;
+}
+
+@keyframes animatie_submeniu {
+    0%{
+      transform: scale(0,0);/*x latime*//*0 latime*/ /*0 inaltime*/
+    }
+    100%{
+      transform: scale(1,1);/*y inaltime*//*1 latime*/ /*1 inaltime*/
+    }
+}
+  

@@ -1,0 +1,7 @@
+5.8 (0-7) - fara bonusuri de timp sau de la etapa 6
+6.67 - cu bonusuri de timp
+
+bonusuri de facut de la etapa 6:
+1 - 0.4, 4 - 0.4, (14, 16) - in loc de 5 - 0.6, 7 - 0.15, 8 - 0.35, 9 - 0.5, (18, 19) in loc de 10a - 0.4, 11 - 0.4
+
+de continuat : erori etapa 4

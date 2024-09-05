@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta charset="UTF-8"> <!-- codificare caractere byte 65 echivalent A mare -->
+        <meta name="description" content="Cel mai bun ceai">
+        <meta name="keywords" content="Ceai Iasomie, Pai Mu Tan, Ceai Ceylon,Ceai Rodie,Ceai Ghimbir">
+        <title>Best Tea </title>
+        <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" href="/resurse/css/galerie.css">
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header.ejs") %>
+        </header>
+        <main>
+            <!-- inceput grid -->
+            <div id="grid-pagina">
+                <!-- zona welcome -->
+                <section id="welcome">
+                    <div class="text">Bine ati venit<div class="text-reflectat">Bine ati venit</div></div>
+                    <p class="intro">
+                        Cand admiram entuziasmul din ochii celor care ne trec pragul e inimitabila, iar zambetele pe care le-am nascut in micul loc cochet din centrul Bucurestilor ne ofera bucurie,
+                        putere si dorinta sa continuam ce-am inceput. Sa fie oare mandrie? Sau oare chiar am avut dreptate la inceput, spunand ca ceaiul da putere? 
+                        Azi sunt mult mai multe lucruri sigure decat la inceput… nu doar miile de cafele, ceaiuri sau bombonele impartite, nu doar afacerile, prieteniile sau cuplurile formate aici,
+                        ci si frumusetea Bucurestiului de altadata a fost restaurata la ceainaria noastra. Sa ducem povestea mai departe si sa spunem, cu curaj, ca viitorul va admira prezentul pe care-l adoram!    
+                    </p>
+                    <hr class="ceai"/>
+                    <h3>Video introductiv</h3>
+                    <div id="container-video">
+                        <div id="centrare-video">
+                            <div id="clip-video">
+                                <div id="stil-video">
+                                    <video width="560" height="315" poster="/resurse/video/poster.jpeg" controls preload="auto" muted>
+                                        <source src="/resurse/video/video.mp4" type="video/mp4">
+                                        <source src="/resurse/video/video.ogv" type="video/ogv">
+                                        <track  default src="/resurse/vtt/caption_romana.vtt" kind="captions" srclang="ro" label="romana">
+                                        <track  src="/resurse/vtt/caption_engleza.vtt" kind="captions" srclang="en" label="engleza">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr class="ceai"/>
+                    <div id="dv-prezentare-1">
+                        <div id="dv-prezentare">
+                            <figure style="width: max-content">
+                                <picture>
+                                    <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                                    <source srcset="/resurse/imagini/ceai1_mic.png" media="(max-width:700px)"/><!-- ecran mic -->
+                                    <source srcset="/resurse/imagini/ceai1_mediu.png" media="(max-width:1200px)"/><!-- ecran mediu -->
+                                    <img src="/resurse/imagini/ceai1_mare.png" alt="text"/><!-- ecran mare -->
+                                </picture>
+                                <figcaption style="text-align: center;"><i>Ceai de fructe de padure</i></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <hr class="ceai"/>
+                </section>
+                <!-- sfarsit zona welcome -->
+                <!-- inceput zona intrebari -->
+                <section id="index-intrebari">
+                    <h2>Întrebări frecvente</h2>
+                    <details><summary>Cum pot comanda?</summary>
+                        <p>Puteti plasa comanda atat online, din aplicatie, cat si telefonic, contactandu-ne la numarul de telefon 
+                            <a href="tel:0722222222">0722 222 222</a>.
+                        </p>
+                    </details>
+                    <details><summary>In cat timp va fi livrata comanda?</summary>
+                        <p>Magazinul nostru livreaza doar in zilele lucratoare, o livrare standard durand aproximativ 2-3 zile.</p>
+                    </details>
+                    <details><summary>Aveti si magazine fizice?</summary>
+                        <p>Da, ceainaria BestTea este deschisa in fiecare zi in intervalele orare specificate pe site, la locatia noastra din Strada Ceainariei 10.</p>
+                    </details>
+                    <details><summary>Sunteți cumva asociați cu medicii dentiști, medicii gastroenterologi, companiile farmaceutice și sălile de Fitness?</summary>
+                        <p>Ne rezervăm dreptul de a nu răspunde la această întrebare; mulțumim pentru înțelegere!</p>
+                    </details>
+                </section>
+                <!-- sfarsit zona intrebari -->
+                <!-- inceput zona anunturi -->
+                <section id="anunturi">
+                    <h2>Anunțuri</h2>
+                    <p><time datetime="2020-07-05">5 iulie 2020</time> Am adăugat noi sortimente de ceai in meniu</p>
+                    <p><time datetime="2020-12-28">28 decembrie 2020</time> Am adăugat o noua reteta de prajituri</p>
+                    <p><time datetime="2021-01-01">1 ianuarie 2021</time> Un an nou fericit!</p>
+                </section> 
+                <!-- sfarsit zona anunturi -->
+                <!-- inceput zona calendar -->
+                <section id="calendar">
+                    <h2>Calendar</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona calendar -->
+                <!-- inceput zona utilizatori si statistici -->
+                <section id="utiliz-stat">
+                    <h2>Date despre utilizatori si statistici</h2>
+                    <p>Ip-ul: <%- locals.ip %></p>
+                </section>
+                <!-- sfarsit zona utilizatori si statistici -->
+                <!-- inceput zona lista utilizatori online -->
+                <section id="lista-utiliz">
+                    <h2>Lista utilizatorilor online</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona lista utilizatori online -->
+                <!-- inceput zona site si server -->
+                <section id="site-server">
+                    <h2>Date despre site si server</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto veritatis similique perspiciatis nemo quos totam accusantium cum ab quibusdam consequuntur quas, autem eum excepturi placeat voluptatibus, odit eaque minus voluptates pariatur commodi assumenda. Fugit perferendis excepturi, laboriosam numquam necessitatibus recusandae? Minus dolore excepturi qui, illo vel earum tenetur? Velit, earum!</p>
+                </section>
+                <!-- sfarsit zona lista site si server -->
+                <!-- inceput zona custom -->
+                <div id="custom">  
+                    <section>
+                        <h2>Produse nou adaugate</h2>
+                        <div class="row">
+                            <% for (let i = 0; i < locals.newProducts.length; i++) { %>
+                                <div class="col-md-4">
+                                    <div class="card mb-4 bg-light">
+                                        <a href="/produs/<%-locals.newProducts[i].id%>" style="background: transparent; border: none">
+                                            <div class="d-flex justify-content-center align-intems-center">
+                                                <img class="card-img-top m-4 w-75" src="/resurse/imagini/produse/<%- locals.newProducts[i].imagine %>/<%- locals.imaginiProduse[i] %>" alt="[imagine <%- locals.newProducts[i].nume %>]" style="border-radius: 20px;">
+                                            </div>
+                                        </a>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center"><%- locals.newProducts[i].nume %></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% if ((i + 1) % 3 === 0) { %>
+                                    </div><div class="row">
+                                <% } %>
+                            <% } %>
+                        </div>
+                    </section>
+                    <!-- inceput zona tabel -->
+                    <br />
+                    <%- include("../fragmente/orar.ejs") %>
+                    <br />
+                    <!-- sfarsit zona tabel -->
+                    <section id="retete">
+                        <h2>Retete</h2>
+                        <p>Unele dintre retetele noastre de ceai pot fi reproduse urmarind recomandarile video de mai jos.</p>
+                            <div class="container-iframe">
+                                <div class="taburi-iframe">
+                                    <a href="https://www.youtube.com/embed/YuOHZ5OY1_c" target="ifr-video">Jasmine Tea</a>
+                                    <a href="https://www.youtube.com/embed/yjmr2WElGBs" target="ifr-video" >Pai Mu Tan</a>
+                                    <a href="https://www.youtube.com/embed/P7Ss9p-PXzw" target="ifr-video" >Ceai Negru</a><br/>
+                                </div>
+                                <div id="ifr-videod"> <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/YuOHZ5OY1_c" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                            </div>
+                    </section>
+                    <section id="promotii">
+                        <h2>Promotii</h2>
+                        <article>
+                            <h3 class="titlu">Super ofertă de weekend!</h3>
+                            <p><b>Best Tea</b> oferă <b>reduceri de <s>10%</s> <ins>15%</ins></b> pentru toate produsele cumpărate în intervalul 10-14.</p>
+                            <p>Oferta este valabilă doar în zilele de sâmbătă și duminică la sediile <abbr title="Best Tea">BT</abbr>.</p>
+                            <p>In cazul în care achizitionati oricare 2 ceaiuri din meniu, primiti un croissant gratis.</p>
+                        </article>
+                        <article>
+                            <h3>Ofertă pachet</h3>
+                            <p>Ceainaria BestTea oferă pachete cuprinzând:</p>
+                            <ol>
+                                <li><i lang="en">Jasmine Tea</i> (puteti citi mai multe despre benificiile acestui ceai pe pagina <a href="https://en.wikipedia.org/wiki/Jasmine_tea" target="_blank"> link</a>)</li>
+                                <li>Un set de 4 pateuri de sortimente diferite</li>
+                                <li>O prajitură la alegere</li>
+                                <li>O cafea</li>
+                            </ol>
+                        </article>
+                    </section>
+                    <section id="produse">
+                        <img src="/resurse/imagini/ceai2.jpg" style="max-width: 25vw;"> 
+                        <p>Pentru a descarca aceasta imagine vizitati link-ul <a class="btn btn-primary text-dark" href="/resurse/imagini/ceai2.jpg" role="button" download>download</a></p>
+                        <h2>Produsele noastre</h2>
+                        <section>
+                            <ul>
+                                <li>Ceai</li>
+                                <li>Cafea</li>
+                                <li>Patiserie</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <%- include("../fragmente/galerie.ejs") %>
+                </div>
+                <!-- sfarsit zona custom -->
+            </div>
+            <!-- sfarsit grid -->
+        </main>
+        <footer>
+            <%- include("../fragmente/footer.ejs") %>
+        </footer>
+    </body>
+</html>

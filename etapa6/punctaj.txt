@@ -1,0 +1,37 @@
+5.8 (0-7) - fara bonusuri de timp sau de la etapa 6
+6.67 - cu bonusuri de timp
+
+bonusuri de facut de la etapa 6:
+1 - 0.4, 4 - 0.4, (14, 16) - in loc de 5 - 0.6, 7 - 0.15, 8 - 0.35, 9 - 0.5, (18, 19) in loc de 10a - 0.4, 11 - 0.4
+
+bonusuri facute etapa 6:
+1 - pentru: gramaj, pret (am calc pret mediu), lista ingrediente, recomandare servire
+    index.js randul 195 dar cu query in sql de la 137 
+    produse.ejs 43 pt recomandare servire 
+4 - pentru toate input-urile
+    produse.js functia updateDisplay care esteapelata in fiecare onchange
+7 - cerinta diacritice
+    produse.js de la 30 la 39
+8 - gramaj, pret, nr_ingrediente -> chei de sortare
+    produse.js 254 - 380
+9 - TODO: de gasit poze pentru restul prod (poza patrata si 400x400)
+    produse.ejs 222 la 238
+    index.js la 157 la 166 si la 206
+11 - cerinta modal
+    188 - 217 in produse.ejs
+14 - pret minim, 
+    191 si 207 in index.js
+    257 - 261 produse.ejs pentru afisare mesaj
+16 - prod similar 246 270
+    239, 240, 256 in index.js - produse similare (care au aceeasi recomandare de servire - dimineata, pranz, seara)
+    41 - 66 in produs.ejs
+18 - cerinta prod noi
+    --pagina produse
+    144-147 in index.js - productsQuery, unde selectam cu is_new produsele noi (au mai putin de 2 luni)
+    189-191 in produse.ejs - afisare mesaj de produs nou
+    --pagina home
+    91-93 in index.js - selectare lista de produse noi pentru pagina de home
+    115-132 in index.EJS - afisare produse noi - newProducts
+19 - orar
+    tot fisierul de orar.ejs din views/fragmente
+    fisierul(fragmentul) este inclus in index.ejs la 138

@@ -1,0 +1,78 @@
+{
+	"cale_galerie":"/resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier":"galerie1.png",
+			"titlu": "Croissant cu ciocolata",
+			"descriere":" Croissant cu ciocolata",
+			"timp": ["dimineata", "seara"]
+		},
+		{
+			"fisier":"galerie2.png",
+			"titlu": "Cafe latte",
+			"descriere":" Cafe latte",
+			"timp": ["dimineata"]
+		},
+		{
+			"fisier":"galerie3.png",
+			"titlu": "Ceai de lamaie si ghimbir",
+			"descriere":" Ceai de lamaie si ghimbi",
+			"timp": ["dimineata", "seara"]
+		},
+		{
+			"fisier":"galerie4.png",
+			"titlu": "Ceai de iasomie",
+			"descriere":" Ceai de iasomie",
+			"timp": ["dimineata"]
+		},
+		{
+			"fisier":"galerie5.png",
+			"titlu": "Ceai verde",
+			"descriere":" Ceai verde",
+			"timp": ["dimineata", "seara"]
+		},
+		{
+			"fisier":"galerie6.png",
+			"titlu": "Matcha",
+			"descriere":" Matcha",
+			"timp": ["dimineata"]
+		},
+		{
+			"fisier":"galerie7.png",
+			"titlu": "Ceai de musetel",
+			"descriere":" Ceai de musetel",
+			"autor": "ORNELLA BINNI pe Unsplash",
+			"timp": ["pranz", "seara"]
+		},
+		{
+			"fisier":"galerie8.png",
+			"titlu": "Ceai de fructe",
+			"descriere":" Ceai de fructe",
+			"timp": ["pranz"]
+		},
+		{
+			"fisier":"galerie9.png",
+			"titlu": "Pain au chocolat",
+			"descriere":" Pain au chocolat",
+			"timp": ["pranz", "seara"]
+		},
+		{
+			"fisier":"galerie10.png",
+			"titlu": "Ceai negru",
+			"descriere":" Ceai negru",
+			"timp": ["pranz"]
+		},
+		{
+			"fisier":"galerie11.png",
+			"titlu": "Espresso",
+			"descriere":" Espresso",
+			"timp": ["pranz", "seara"]
+		},
+		{
+			"fisier":"galerie12.png",
+			"titlu": "Cafea americano",
+			"descriere":" Cafea americano",
+			"timp": ["pranz"]
+		}
+	]
+}
